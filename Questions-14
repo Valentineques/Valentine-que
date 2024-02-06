@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mx-auto">
+        <h1 class="text-2xl" id="init">Hey Dimple👋, Can I Ask You Something?</h1>
+        <button onclick="startQuestions()" id="que"> Sure, Ask Away!</button>
+
+        <div id="questions" style="display: none;">
+            <h1 class="text-2xl mt-8">Question 1:</h1>
+            <p>Do you believe in love at first sight?</p>
+            <button onclick="answerYes()">Yes</button>
+            <button onclick="answerNo()" class="no">No</button>
+        </div>
+
+        <div id="love" style="display: none;">
+            <h1 class="text-2xl mt-8">Question 2:</h1>
+            <p>Do you still love me?</p>
+            <button onclick="answerLoveYes()">Yes</button>
+            <button onclick="answerLoveNo()" class="no">No</button>
+        </div>
+
+        <div id="valentine" style="display: none;">
+            <h1 class="text-2xl mt-8">Question 3:</h1>
+            <p>Will you be my valentine?</p>
+            <button onclick="answerValentineYes()">Yes</button>
+            <button onclick="answerValentineNo()" class="no">No</button>
+        </div>
+
+        <div id="message" style="display: none;">
+            <p id="messageText"></p>
+        </div>
+    </div>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <footer class="text-center mt-8">
+        Made with ❤️ by Awa
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js"></script>
+    <script src="script.js"></script>
+    <script>
+        function startQuestions() {
+            document.getElementById('que').style.display = "none";
+            document.getElementById('questions').style.display = "block";
+        }
+
+        function answerYes() {
+            document.getElementById('messageText').innerText = "Great! Love at first sight can be magical. Next question:";
+            document.getElementById('questions').style.display = "none";
+            document.getElementById('love').style.display = "block";
+        }
+
+        function answerNo() {
+            document.getElementById('messageText').innerText = "That's okay! Love can take many forms. Next question:";
+            document.getElementById('questions').style.display = "none";
+            document.getElementById('love').style.display = "block";
+        }
+
+        function answerLoveYes() {
+            document.getElementById('messageText').innerText = "Awesome! Next question:";
+            document.getElementById('love').style.display = "none";
+            document.getElementById('valentine').style.display = "block";
+        }
+
+        function answerLoveNo() {
+            document.getElementById('messageText').innerText = "It's okay, we can continue to stay friends 😿. See you around!";
+            document.getElementById('love').style.display = "none";
+            document.getElementById('message').style.display = "block";
+        }
+        
+        function answerValentineYes() {
+        document.getElementById('messageText').innerText = "See you next week then! Text ME ";
+        document.getElementById('valentine').style.display = "none";
+        document.getElementById('message').style.display = "block";
+        
+        }
+
+        function answerValentineNo() {
+            document.getElementById('messageText').innerText = "Oh, that's okay. Maybe next time!";
+            document.getElementById('valentine').style.display = "none";
+            document.getElementById('message').style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
